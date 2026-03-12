@@ -9,7 +9,7 @@ export const personalInfo = {
   whatsapp: "https://wa.me/918169686681",
   social: {
     github: "https://github.com/vedant990-hub",
-    linkedin: "https://www.linkedin.com/in/vedant-pawar-63b351328"
+    linkedin: "https://www.linkedin.com/in/vedant-p-63b351328/"
   }
 };
 
