@@ -68,88 +68,112 @@ export const skills = {
 
 export const projects = [
   {
+    id: 0,
+    name: "Smart Library Management App",
+    url: "#",
+    githubUrl: "https://github.com/vedant990-hub/library-management-app",
+    summary: "A Flutter + Firebase powered digital library system with wallet-based borrowing.",
+    clientType: "MOBILE APP PROJECT",
+    type: "mobile",
+    overview: "This project is a digital library management mobile application built using Flutter and Firebase. It modernizes traditional library systems by allowing users to discover books, reserve them, borrow using a wallet deposit system, and track their reading activity.",
+    whatIDid: "Built the entire mobile application from scratch using Flutter. Implemented Firebase for authentication and database management, developed the wallet system logic, and integrated QR scanning capabilities.",
+    features: [
+      "Book discovery and search by title or genre",
+      "Book reservation system",
+      "Wallet-based borrowing with deposit locking",
+      "QR code digital library ID",
+      "Admin dashboard with analytics graphs",
+      "Reading streaks and badges",
+      "Book ratings and reviews",
+      "Dark mode support"
+    ],
+    techStack: ["Flutter", "Firebase", "Provider", "QR Scanner", "FL Chart"],
+    screenshots: [
+      { title: "User Dashboard", url: "/screenshots/UserDashboard.jpeg" },
+      { title: "Book Discovery", url: "/screenshots/Discover.jpeg" },
+      { title: "Book Details", url: "/screenshots/BookId.jpeg" },
+      { title: "QR Book Scanner", url: "/screenshots/BookScanner.jpeg" },
+      { title: "User Profile", url: "/screenshots/UserProfile.jpeg" },
+      { title: "Digital Library ID", url: "/screenshots/UserId.jpeg" },
+      { title: "QR Access Key", url: "/screenshots/UserQr.jpeg" },
+      { title: "Admin Overview", url: "/screenshots/AdminDash.jpeg" },
+      { title: "Real-time Stats", url: "/screenshots/Stat!.jpeg" }
+    ]
+  },
+  {
     id: 1,
     name: "SPR Naturals",
     url: "https://sprnaturals.in/",
+    githubUrl: "https://github.com/vedant990-hub/spr-naturals-product-showcase",
     summary: "E-commerce website for a natural products business",
     clientType: "Live Client Project",
-    overview: "A comprehensive e-commerce website for a natural products business, featuring product showcases, brand storytelling, and optimized conversion paths.",
-    whatIDid: "Designed and developed the complete website from scratch. Built a fully responsive interface, structured content for maximum engagement, and implemented SEO best practices for organic visibility.",
+    type: "web",
+    overview: "A modern, SEO-optimized product showcase website designed to present natural products with a clean UI and production-ready deployment. Features integrated analytics and multilingual support.",
+    whatIDid: "Designed and developed the complete website from scratch using Next.js and TypeScript. Implemented a fully responsive interface, structured content for maximum engagement, and optimized for SEO.",
     features: [
-      "Responsive product showcase",
-      "Brand storytelling sections",
-      "Mobile-optimized navigation",
-      "Contact form integration",
-      "Performance optimized"
+      "Next.js App Router architecture",
+      "Multilingual support (i18n)",
+      "SEO & Performance optimized",
+      "Integrated analytics",
+      "Contact handling system"
     ],
-    techStack: ["HTML", "CSS", "JavaScript"]
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"]
   },
   {
     id: 2,
-    name: "Vibha Global Exim",
-    url: "https://vibhaglobaleximservices.com/",
-    summary: "Corporate website for an international export company",
+    name: "Ayurudnik",
+    url: "https://ayurudnik.com/",
+    githubUrl: "https://github.com/vedant990-hub/Ayurudnik-Remedies",
+    summary: "B2B website for veterinary health manufacturing",
     clientType: "Live Client Project",
-    overview: "A professional corporate website designed to establish international B2B credibility and showcase global trade services to potential partners worldwide.",
-    whatIDid: "Built a multi-page responsive website with service-focused architecture. Implemented trust-building elements and professional presentation optimized for international clients.",
+    type: "web",
+    overview: "A professional B2B corporate website for an animal nutrition and veterinary supplements manufacturer specializing in private-label solutions. Designed to build industry trust and generate partner leads.",
+    whatIDid: "Built a clean, responsive UI with consistent branding. Developed dedicated sections for manufacturing capabilities, certifications, species-specific products, and private-label inquiry pathways.",
     features: [
-      "Professional service pages",
-      "International client focus",
-      "Trust-building elements",
-      "Multi-language ready",
-      "Contact integration"
+      "B2B partner inquiry flows",
+      "Species-based product categorization",
+      "Trust-building certification showcase",
+      "Responsive professional design",
+      "Manufacturing process visualization"
     ],
-    techStack: ["HTML", "CSS", "JavaScript"]
+    techStack: ["React", "Vite", "JavaScript", "Tailwind CSS"]
   },
   {
     id: 3,
     name: "Vedanta Healthcare",
     url: "https://vedantahealthcare.org/",
+    githubUrl: "https://github.com/vedant990-hub/vedanta-healthcare-connect",
     summary: "Informational website for a healthcare organization",
     clientType: "Live Client Project",
-    overview: "A clean, accessible healthcare website designed to clearly communicate services and build trust with patients and healthcare seekers.",
-    whatIDid: "Created an accessible, user-friendly layout with clear information architecture. Ensured medical information is easy to find, understand, and act upon.",
+    type: "web",
+    overview: "A modern healthcare services website designed to present medical offerings with a clear, accessible layout and patient-oriented information delivery.",
+    whatIDid: "Developed the front-end using React and TypeScript, focusing on performance and accessibility. Implemented a clean information hierarchy to help patients easily navigate healthcare services.",
     features: [
-      "Clear information hierarchy",
-      "Accessible design",
-      "Service showcase",
-      "Trust indicators",
-      "Mobile responsive"
+      "Accessible medical service menu",
+      "Patient-oriented information architecture",
+      "Modern healthcare UI",
+      "Performance optimized",
+      "SEO friendly structure"
     ],
-    techStack: ["HTML", "CSS", "JavaScript"]
+    techStack: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui"]
   },
   {
     id: 4,
-    name: "Shiva Valley Naturals",
-    url: "https://shivavalleynaturals.com/",
-    summary: "Brand showcase website for natural wellness products",
+    name: "Vibha Global Exim",
+    url: "https://vibhaglobaleximservices.com/",
+    githubUrl: "https://github.com/vedant990-hub/vibha-farm-to-global",
+    summary: "Corporate website for an international export company",
     clientType: "Live Client Project",
-    overview: "A modern brand showcase website highlighting natural wellness products with emphasis on visual appeal, brand identity, and product discovery.",
-    whatIDid: "Developed a visually striking website with modern UI patterns. Implemented smooth interactions and ensured consistent brand presentation across all devices.",
+    type: "web",
+    overview: "A modern corporate website designed to establish international B2B credibility and showcase global trade export-import services with a professional structure.",
+    whatIDid: "Built a multi-page responsive website focusing on lead generation and international B2B standards. Used TypeScript to ensure code reliability and a robust architecture.",
     features: [
-      "Modern UI design",
-      "Product showcase",
-      "Brand identity integration",
-      "Smooth animations",
-      "Cross-device compatible"
+      "Export-import service showcase",
+      "Global B2B positioning",
+      "Lead generation pathways",
+      "International trade focus",
+      "Responsive corporate layout"
     ],
-    techStack: ["HTML", "CSS", "JavaScript"]
-  },
-  {
-    id: 5,
-    name: "Ayurudnik",
-    url: "https://ayurudnik.com/",
-    summary: "B2B website for veterinary health manufacturing",
-    clientType: "Live Client Project",
-    overview: "A premium B2B website for a veterinary and animal health manufacturing company, designed to showcase expertise, build industry trust, and generate qualified leads.",
-    whatIDid: "Built comprehensive trust sections, process flow visualizations, statistics displays, and clear call-to-actions. Focused on professional B2B presentation and lead generation.",
-    features: [
-      "Trust-building sections",
-      "Process visualization",
-      "Statistics display",
-      "Lead generation forms",
-      "Professional B2B design"
-    ],
-    techStack: ["HTML", "CSS", "JavaScript"]
+    techStack: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui"]
   }
 ];

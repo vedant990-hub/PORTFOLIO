@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, ChevronDown, ChevronUp, Layers, Code2, Sparkles, ArrowUpRight } from 'lucide-react';
+import { ExternalLink, ChevronDown, ChevronUp, Layers, Code2, Sparkles, ArrowUpRight, Github, Image as ImageIcon } from 'lucide-react';
 import { Button } from '../ui/button';
 
 const ProjectCard = ({ project, index }) => {
@@ -18,7 +18,9 @@ const ProjectCard = ({ project, index }) => {
         <div className="project-card-content">
           <div className="project-header">
             <div className="project-meta">
-              <span className="project-badge">{project.clientType}</span>
+              <span className={`project-badge ${project.type === 'mobile' ? 'mobile-badge' : ''}`}>
+                {project.clientType}
+              </span>
               <span className="project-number">0{index + 1}</span>
             </div>
             <h3 className="project-name">{project.name}</h3>
@@ -34,15 +36,30 @@ const ProjectCard = ({ project, index }) => {
               <span>{isExpanded ? 'Less' : 'Details'}</span>
               {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
             </button>
-            <a 
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="view-live-link"
-            >
-              <span>View Live</span>
-              <ArrowUpRight size={16} />
-            </a>
+            
+            {project.type === 'mobile' ? (
+              <>
+                <a 
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="view-live-link github-btn"
+                >
+                  <Github size={16} />
+                  <span>GitHub</span>
+                </a>
+              </>
+            ) : (
+              <a 
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="view-live-link"
+              >
+                <span>View Live</span>
+                <ArrowUpRight size={16} />
+              </a>
+            )}
           </div>
         </div>
 
@@ -63,6 +80,35 @@ const ProjectCard = ({ project, index }) => {
                   </div>
                   <p>{project.overview}</p>
                 </div>
+
+                {project.type === 'mobile' && project.screenshots && (
+                  <div className="detail-section">
+                    <div className="detail-header">
+                      <Sparkles size={16} />
+                      <h4>App Screenshots</h4>
+                    </div>
+                    <div className="screenshot-gallery">
+                      {project.screenshots.map((s, i) => (
+                        <motion.div 
+                          key={i} 
+                          className="screenshot-card"
+                          whileHover={{ y: -5, scale: 1.02 }}
+                          transition={{ type: "spring", stiffness: 300 }}
+                        >
+                          {s.url ? (
+                            <img src={s.url} alt={s.title} className="screenshot-img" />
+                          ) : (
+                            <div className="screenshot-placeholder">
+                              <ImageIcon size={24} />
+                              <span>Image Coming Soon</span>
+                            </div>
+                          )}
+                          <span className="screenshot-title">{s.title}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 <div className="detail-section">
                   <div className="detail-header">
@@ -87,13 +133,38 @@ const ProjectCard = ({ project, index }) => {
                   </ul>
                 </div>
 
-                <Button 
-                  className="view-live-btn-full"
-                  onClick={() => window.open(project.url, '_blank')}
-                >
-                  Visit Live Website
-                  <ExternalLink size={16} />
-                </Button>
+                <div className="detail-section">
+                  <div className="detail-header">
+                    <Code2 size={16} />
+                    <h4>Tech Stack</h4>
+                  </div>
+                  <div className="tech-stack-grid">
+                    {project.techStack.map((tech, i) => (
+                      <span key={i} className="tech-tag">{tech}</span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mobile-actions-footer">
+                  {project.githubUrl && (
+                    <Button 
+                      className="view-live-btn-full github-footer-btn"
+                      onClick={() => window.open(project.githubUrl, '_blank')}
+                    >
+                      <Github size={16} />
+                      View Source Code
+                    </Button>
+                  )}
+                  {project.type !== 'mobile' && (
+                    <Button 
+                      className="view-live-btn-full"
+                      onClick={() => window.open(project.url, '_blank')}
+                    >
+                      Visit Live Website
+                      <ExternalLink size={16} />
+                    </Button>
+                  )}
+                </div>
               </div>
             </motion.div>
           )}

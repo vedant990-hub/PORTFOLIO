@@ -837,6 +837,122 @@ section {
   gap: 8px 24px;
 }
 
+.mobile-badge {
+  color: #3b82f6 !important; /* Blue for mobile app */
+  background: rgba(59, 130, 246, 0.1) !important;
+  border-color: rgba(59, 130, 246, 0.2) !important;
+}
+
+.github-btn {
+  background: #24292e !important;
+  border-color: #24292e !important;
+  color: white !important;
+}
+
+.github-btn:hover {
+  background: #2f363d !important;
+}
+
+.screenshot-gallery {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 8px 0 16px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+.screenshot-gallery::-webkit-scrollbar {
+  height: 6px;
+}
+
+.screenshot-gallery::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 10px;
+}
+
+.screenshot-card {
+  flex-shrink: 0;
+  width: 160px;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.screenshot-img,
+.screenshot-placeholder {
+  width: 100%;
+  aspect-ratio: 9/16;
+  object-fit: cover;
+  border-radius: 8px;
+  background: var(--color-bg-elevated);
+}
+
+.screenshot-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px dashed var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.screenshot-placeholder span {
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+  padding: 0 8px;
+}
+
+.screenshot-title {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+.tech-stack-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tag {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.mobile-actions-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+@media (max-width: 640px) {
+  .mobile-actions-footer {
+    grid-template-columns: 1fr;
+  }
+}
+
+.github-footer-btn {
+  background: #24292e !important;
+  color: white !important;
+  border: 1px solid #2f363d !important;
+}
+
 @media (max-width: 640px) {
   .feature-list {
     grid-template-columns: 1fr;
