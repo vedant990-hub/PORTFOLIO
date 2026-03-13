@@ -32,11 +32,11 @@ export const skills = {
   // Consolidated skills for the marquee layout
   row1: [
     { name: "HTML5", slug: "html5" },
-    { name: "CSS3", slug: "css3" },
+    { name: "CSS3", customIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" },
     { name: "JavaScript", slug: "javascript" },
     { name: "React", slug: "react" },
     { name: "Next.js", slug: "nextdotjs" },
-    { name: "Tailwind CSS", slug: "tailwindcss" },
+    { name: "Tailwind", slug: "tailwindcss" },
     { name: "MongoDB", slug: "mongodb" },
     { name: "Node.js", slug: "nodedotjs" }
   ],
@@ -47,7 +47,7 @@ export const skills = {
     { name: "Firebase", slug: "firebase" },
     { name: "Git", slug: "git" },
     { name: "GitHub", slug: "github" },
-    { name: "VS Code", slug: "visualstudiocode" },
+    { name: "VS Code", customIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" },
     { name: "Postman", slug: "postman" },
     { name: "Bruno", slug: "bruno" }
   ]

@@ -21,7 +21,7 @@ const MarqueeRow = ({ items, direction = 'left', speed = 50 }) => {
             }}
           >
             <img
-              src={`https://cdn.simpleicons.org/${skill.slug}`}
+              src={skill.customIcon || `https://cdn.simpleicons.org/${skill.slug}`}
               alt={skill.name}
               className="skill-badge-logo"
               onError={(e) => (e.target.style.display = 'none')}
