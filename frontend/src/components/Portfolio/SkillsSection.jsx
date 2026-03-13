@@ -58,6 +58,7 @@ const SkillsSection = () => {
           <div className="marquee-rows-stack">
             <MarqueeRow items={skills.row1} direction="left" speed={40} />
             <MarqueeRow items={skills.row2} direction="right" speed={45} />
+            <MarqueeRow items={skills.row3} direction="left" speed={42} />
           </div>
         </div>
       </div>

@@ -34,22 +34,30 @@ export const skills = {
     { name: "HTML5", slug: "html5" },
     { name: "CSS3", customIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" },
     { name: "JavaScript", slug: "javascript" },
+    { name: "TypeScript", slug: "typescript" },
     { name: "React", slug: "react" },
     { name: "Next.js", slug: "nextdotjs" },
-    { name: "Tailwind", slug: "tailwindcss" },
-    { name: "MongoDB", slug: "mongodb" },
-    { name: "Node.js", slug: "nodedotjs" }
+    { name: "Tailwind CSS", slug: "tailwindcss" },
+    { name: "JWT", slug: "jsonwebtokens" }
   ],
   row2: [
+    { name: "Node.js", slug: "nodedotjs" },
     { name: "Express.js", slug: "express" },
     { name: "REST APIs", slug: "postman" },
-    { name: "Flutter", slug: "flutter" },
+    { name: "MongoDB", slug: "mongodb" },
     { name: "Firebase", slug: "firebase" },
+    { name: "Docker", slug: "docker" },
+    { name: "Nginx", slug: "nginx" },
+    { name: "OAuth", customIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/oauth/oauth-original.svg" }
+  ],
+  row3: [
+    { name: "Flutter", slug: "flutter" },
     { name: "Git", slug: "git" },
     { name: "GitHub", slug: "github" },
     { name: "VS Code", customIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" },
     { name: "Postman", slug: "postman" },
-    { name: "Bruno", slug: "bruno" }
+    { name: "Bruno", slug: "bruno" },
+    { name: "Render", slug: "render" }
   ]
 };
 
