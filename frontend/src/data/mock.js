@@ -2,8 +2,8 @@
 
 export const personalInfo = {
   name: "Vedant Pawar",
-  title: "Full-Stack Web Developer",
-  tagline: "Crafting production-ready websites that drive real business results.",
+  title: "Full-Stack Developer",
+  tagline: "Building scalable web and mobile applications that drive real business results.",
   email: "contact.vedant.pawar@gmail.com",
   phone: "+91 8169686681",
   whatsapp: "https://wa.me/918169686681",

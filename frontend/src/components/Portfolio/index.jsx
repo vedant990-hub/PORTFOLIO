@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, GraduationCap, MessageCircle, Phone } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Github, Linkedin, Mail, GraduationCap, MessageCircle, Phone, ArrowUp } from 'lucide-react';
 import { Card } from '../ui/card';
 import Header from './Header';
 import HeroSection from './HeroSection';
@@ -19,6 +19,27 @@ const textRevealVariants = {
 };
 
 const Portfolio = () => {
+  const [heroKey, setHeroKey] = useState(0);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // Handle scroll visibility for BackToTop button
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleBackToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Small delay to allow the scroll to start before remounting for a smoother feel
+    setTimeout(() => {
+      setHeroKey(prev => prev + 1);
+    }, 100);
+  };
+
   // Split about text into paragraphs
   const aboutParagraphs = aboutText.split('\n\n');
 
@@ -28,7 +49,7 @@ const Portfolio = () => {
       <Header />
 
       {/* Hero Section */}
-      <HeroSection />
+      <HeroSection key={heroKey} />
 
       {/* About Section */}
       <section className="about-section" id="about">
@@ -220,6 +241,24 @@ const Portfolio = () => {
           </div>
         </div>
       </footer>
+
+      {/* Back to Top Button */}
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            className="back-to-top"
+            initial={{ opacity: 0, y: 20, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.8 }}
+            onClick={handleBackToTop}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label="Back to top"
+          >
+            <ArrowUp size={24} />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
