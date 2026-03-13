@@ -6,6 +6,7 @@ import Header from './Header';
 import HeroSection from './HeroSection';
 import SkillsSection from './SkillsSection';
 import ProjectCard from './ProjectCard';
+import ProjectModal from './ProjectModal';
 import { personalInfo, aboutText, education, projects } from '../../data/mock';
 
 const textRevealVariants = {
@@ -21,6 +22,7 @@ const textRevealVariants = {
 const Portfolio = () => {
   const [heroKey, setHeroKey] = useState(0);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   // Handle scroll visibility for BackToTop button
   useEffect(() => {
@@ -137,9 +139,14 @@ const Portfolio = () => {
             <h2 className="section-title">Featured Projects</h2>
             <p className="section-subtitle">Real websites built for real businesses — live and in production</p>
           </motion.div>
-          <div className="projects-list">
+          <div className="projects-grid">
             {projects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
+              <ProjectCard 
+                key={project.id} 
+                project={project} 
+                index={index} 
+                onSelect={() => setSelectedProject(project)}
+              />
             ))}
           </div>
         </div>
@@ -259,6 +266,12 @@ const Portfolio = () => {
           </motion.button>
         )}
       </AnimatePresence>
+
+      <ProjectModal 
+        project={selectedProject} 
+        isOpen={!!selectedProject} 
+        onClose={() => setSelectedProject(null)} 
+      />
     </div>
   );
 };

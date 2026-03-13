@@ -766,16 +766,26 @@ section {
   background: var(--color-bg-primary);
 }
 
-.projects-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  max-width: 800px;
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr; /* Force all rows to have equal height */
+  gap: 32px;
+  max-width: 1000px;
   margin: 0 auto;
+}
+
+/* Center the 5th project on desktop */
+.projects-grid > .project-card-wrapper:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: 100%;
+  max-width: calc(50% - 16px);
 }
 
 .project-card-wrapper {
   width: 100%;
+  height: 100%;
 }
 
 .project-card {
@@ -784,6 +794,9 @@ section {
   border-radius: 12px;
   overflow: hidden;
   transition: all var(--transition-medium);
+  height: 100%; /* Fill the wrapper */
+  display: flex;
+  flex-direction: column;
 }
 
 .project-card:hover {
@@ -797,8 +810,9 @@ section {
 .project-card-content {
   padding: 28px 32px;
   display: flex;
+  flex-direction: column; /* Changed to column for equal height layout */
   justify-content: space-between;
-  align-items: center;
+  height: 100%;
   gap: 24px;
 }
 
@@ -815,13 +829,13 @@ section {
 
 .project-badge {
   font-size: 0.7rem;
-  font-weight: 500;
-  color: var(--color-text-muted);
+  font-weight: 700;
+  color: var(--color-text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  padding: 4px 10px;
+  padding: 4px 12px;
   background: var(--color-bg-elevated);
-  border: 1px solid var(--color-border);
+  border: 1.5px solid var(--color-border-light);
   border-radius: 4px;
 }
 
@@ -1280,6 +1294,17 @@ section {
     padding: 0 24px 24px;
     padding-top: 24px;
   }
+
+  .projects-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .projects-list > .project-card-wrapper:last-child:nth-child(odd) {
+    grid-column: auto;
+    justify-self: stretch;
+    max-width: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1291,12 +1316,307 @@ section {
     margin-bottom: 48px;
   }
 
+  .projects-list {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
   .about-paragraph {
     font-size: 1rem;
   }
 
   .about-paragraph:first-child {
     font-size: 1.1rem;
+  }
+}
+
+/* Project Modal Styles */
+.project-modal-overlay-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.project-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+.project-modal-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  max-height: 90vh;
+  z-index: 2001;
+}
+
+.project-modal-content {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  width: 100%;
+  max-height: 90vh; /* Ensure content doesn't exceed viewport */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 2010;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.modal-header {
+  padding: 40px 40px 20px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.02), transparent);
+}
+
+.modal-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 12px;
+}
+
+.modal-summary {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  max-width: 600px;
+}
+
+.modal-body {
+  padding: 0 40px 40px;
+  overflow-y: auto;
+  flex: 1;
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #2a2a2a #0a0a0a;
+}
+
+/* Dark modal body scrollbar – Webkit */
+.modal-body::-webkit-scrollbar {
+  width: 7px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+  background: #0a0a0a;
+  border-radius: 99px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 99px;
+  border: 1px solid #0a0a0a;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+  background: #3d3d3d;
+}
+
+.modal-body::-webkit-scrollbar-corner {
+  background: #0a0a0a;
+}
+
+.modal-section {
+  margin-bottom: 32px;
+}
+
+.modal-section h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-text {
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.modal-grid-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.modal-gallery {
+  display: flex;
+  overflow-x: auto;
+  gap: 24px;
+  margin-top: 16px;
+  padding: 8px 24px 16px;
+  margin-left: -24px;
+  margin-right: -24px;
+  /* Hide scrollbar completely — Firefox */
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar completely — Webkit */
+.modal-gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.modal-gallery .screenshot-card {
+  flex: 0 0 180px; /* Reduced width for better spacing */
+  min-width: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  transition: transform 0.3s ease;
+}
+
+.modal-gallery .screenshot-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-primary);
+}
+
+.modal-gallery .screenshot-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.modal-features li {
+  color: var(--color-text-secondary);
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-footer {
+  padding: 24px 40px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.modal-footer-btn {
+  height: 50px !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  padding: 0 24px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Primary Button Styles */
+.modal-footer-btn.live {
+  background: var(--color-primary) !important;
+  color: white !important;
+  box-shadow: 0 10px 20px -10px var(--color-primary) !important;
+}
+
+.modal-footer-btn.live:hover {
+  background: #2563eb !important; /* Slightly darker blue */
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px -10px var(--color-primary) !important;
+}
+
+/* Secondary Button Styles */
+.modal-footer-btn.github {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--color-border) !important;
+  color: var(--color-text-secondary) !important;
+}
+
+.modal-footer-btn.github:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: var(--color-border-light) !important;
+  color: white !important;
+  transform: translateY(-2px);
+}
+
+.project-card.modal-trigger {
+  cursor: pointer;
+}
+
+/* Interaction overrides */
+@media (min-width: 1025px) {
+  .mobile-only {
+    display: none !important;
+  }
+  
+  .mobile-only-details {
+    display: none !important;
+  }
+
+  .project-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--color-primary);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+}
+
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .projects-grid > .project-card-wrapper:last-child:nth-child(odd) {
+    grid-column: auto;
+    justify-self: stretch;
+    max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-grid-info {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .modal-title {
+    font-size: 1.75rem;
+  }
+  
+  .modal-header, .modal-body, .modal-footer {
+    padding-left: 24px;
+    padding-right: 24px;
   }
 }
 

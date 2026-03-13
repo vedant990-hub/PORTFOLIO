@@ -3,8 +3,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, ChevronDown, ChevronUp, Layers, Code2, Sparkles, ArrowUpRight, Github, Image as ImageIcon } from 'lucide-react';
 import { Button } from '../ui/button';
 
-const ProjectCard = ({ project, index }) => {
+const ProjectCard = ({ project, index, onSelect }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+
+  const handleCardClick = () => {
+    // Only trigger modal on desktop (width > 1024px)
+    if (window.innerWidth > 1024) {
+      onSelect(project);
+    }
+  };
 
   return (
     <motion.div
@@ -14,7 +21,10 @@ const ProjectCard = ({ project, index }) => {
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      <div className={`project-card ${isExpanded ? 'expanded' : ''}`}>
+      <div 
+        className={`project-card ${isExpanded ? 'expanded' : ''} ${window.innerWidth > 1024 ? 'modal-trigger' : ''}`}
+        onClick={handleCardClick}
+      >
         <div className="project-card-content">
           <div className="project-header">
             <div className="project-meta">
@@ -29,8 +39,11 @@ const ProjectCard = ({ project, index }) => {
 
           <div className="project-actions">
             <button 
-              className="expand-btn"
-              onClick={() => setIsExpanded(!isExpanded)}
+              className="expand-btn mobile-only"
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsExpanded(!isExpanded);
+              }}
               aria-label={isExpanded ? "Collapse details" : "Expand details"}
             >
               <span>{isExpanded ? 'Less' : 'Details'}</span>
@@ -72,7 +85,7 @@ const ProjectCard = ({ project, index }) => {
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
-              <div className="details-content">
+              <div className="details-content mobile-only-details">
                 <div className="detail-section">
                   <div className="detail-header">
                     <Layers size={16} />
