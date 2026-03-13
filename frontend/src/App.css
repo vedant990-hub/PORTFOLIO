@@ -1591,6 +1591,7 @@ section {
 @media (max-width: 1024px) {
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto; /* Remove fixed height constraint on tablet/mobile */
   }
   
   .projects-grid > .project-card-wrapper:last-child:nth-child(odd) {
@@ -1598,11 +1599,26 @@ section {
     justify-self: stretch;
     max-width: none;
   }
+
+  /* Allow cards to grow freely when expanded on mobile/tablet */
+  .project-card-wrapper {
+    height: auto;
+  }
+
+  .project-card {
+    height: auto;
+    overflow: visible; /* Critical: allow expanded content to show */
+  }
+
+  .project-card-content {
+    height: auto;
+  }
 }
 
 @media (max-width: 640px) {
   .projects-grid {
     grid-template-columns: 1fr;
+    grid-auto-rows: auto;
   }
   
   .modal-grid-info {
@@ -1617,6 +1633,45 @@ section {
   .modal-header, .modal-body, .modal-footer {
     padding-left: 24px;
     padding-right: 24px;
+  }
+
+  /* Mobile inline detail fixes */
+  .project-card {
+    overflow: visible;
+    height: auto;
+  }
+
+  .project-card-wrapper {
+    height: auto;
+  }
+
+  .project-card-content {
+    padding: 20px;
+    height: auto;
+  }
+
+  .details-content {
+    padding: 0 20px 24px;
+    padding-top: 20px;
+  }
+
+  /* Single column features on phone */
+  .feature-list {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  /* Mobile action footer buttons */
+  .mobile-actions-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  .view-live-btn-full {
+    width: 100% !important;
+    justify-content: center !important;
   }
 }
 
