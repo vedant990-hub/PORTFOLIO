@@ -1,42 +1,45 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Server, Globe, Cloud, Wrench } from 'lucide-react';
 import { skills } from '../../data/mock';
 
-const skillCategories = [
-  { key: 'frontend', title: 'Frontend', icon: Code2 },
-  { key: 'backend', title: 'Backend', icon: Server },
-  { key: 'cms', title: 'CMS & E-Commerce', icon: Globe },
-  { key: 'hosting', title: 'Hosting & Deployment', icon: Cloud },
-  { key: 'tools', title: 'Developer Tools', icon: Wrench }
-];
+const MarqueeRow = ({ items, direction = 'left', speed = 50 }) => {
+  // Triple the items to ensure seamless loop
+  const duplicatedItems = [...items, ...items, ...items];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" }
-  }
+  return (
+    <div className={`marquee-row-wrapper ${direction}`}>
+      <div className={`marquee-track ${direction}`}>
+        {duplicatedItems.map((skill, index) => (
+          <motion.div
+            key={`${skill.slug}-${index}`}
+            className="skill-badge-premium"
+            whileHover={{ 
+              y: -5,
+              scale: 1.05, 
+              backgroundColor: 'rgba(255, 255, 255, 0.08)',
+              borderColor: 'rgba(255, 255, 255, 0.2)'
+            }}
+          >
+            <img
+              src={`https://cdn.simpleicons.org/${skill.slug}`}
+              alt={skill.name}
+              className="skill-badge-logo"
+              onError={(e) => (e.target.style.display = 'none')}
+            />
+            <span className="skill-badge-name">{skill.name}</span>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 const SkillsSection = () => {
   return (
-    <section className="skills-section" id="skills">
-      <div className="container">
+    <section className="skills-section-marquee" id="skills">
+      <div className="container-full">
         <motion.div
-          className="section-header"
+          className="section-header centered-premium"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -44,52 +47,19 @@ const SkillsSection = () => {
         >
           <span className="section-label">Expertise</span>
           <h2 className="section-title">Technical Skills</h2>
-          <p className="section-subtitle">Technologies and tools I use to build production-ready websites</p>
+          <p className="section-intro-text">Technologies I use to build production-ready applications</p>
         </motion.div>
 
-        <motion.div 
-          className="skills-grid"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-        >
-          {skillCategories.map((category) => {
-            const Icon = category.icon;
-            const categorySkills = skills[category.key];
-            
-            return (
-              <motion.div
-                key={category.key}
-                className="skill-card"
-                variants={itemVariants}
-                whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              >
-                <div className="skill-card-header">
-                  <div className="skill-icon">
-                    <Icon size={22} />
-                  </div>
-                  <h3 className="skill-category-title">{category.title}</h3>
-                </div>
-                <ul className="skill-list">
-                  {categorySkills.map((skill, i) => (
-                    <motion.li 
-                      key={i}
-                      className="skill-item"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.05 }}
-                    >
-                      <span className="skill-dot" />
-                      <span className="skill-name">{skill}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+        <div className="marquee-container-main">
+          {/* Edge Fades */}
+          <div className="marquee-fade-left"></div>
+          <div className="marquee-fade-right"></div>
+
+          <div className="marquee-rows-stack">
+            <MarqueeRow items={skills.row1} direction="left" speed={40} />
+            <MarqueeRow items={skills.row2} direction="right" speed={45} />
+          </div>
+        </div>
       </div>
     </section>
   );

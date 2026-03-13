@@ -140,7 +140,15 @@ const ProjectCard = ({ project, index }) => {
                   </div>
                   <div className="tech-stack-grid">
                     {project.techStack.map((tech, i) => (
-                      <span key={i} className="tech-tag">{tech}</span>
+                      <span key={i} className="tech-tag">
+                        <img 
+                          src={`https://cdn.simpleicons.org/${tech.slug}`} 
+                          alt="" 
+                          className="tech-tag-icon"
+                          onError={(e) => (e.target.style.display = 'none')}
+                        />
+                        {tech.name}
+                      </span>
                     ))}
                   </div>
                 </div>

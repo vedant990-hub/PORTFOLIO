@@ -29,40 +29,27 @@ export const education = {
 };
 
 export const skills = {
-  frontend: [
-    "HTML5",
-    "CSS3",
-    "JavaScript (ES6+)",
-    "React",
-    "Responsive Design",
-    "UI/UX Principles"
+  // Consolidated skills for the marquee layout
+  row1: [
+    { name: "HTML5", slug: "html5" },
+    { name: "CSS3", slug: "css3" },
+    { name: "JavaScript", slug: "javascript" },
+    { name: "React", slug: "react" },
+    { name: "Next.js", slug: "nextdotjs" },
+    { name: "Tailwind CSS", slug: "tailwindcss" },
+    { name: "MongoDB", slug: "mongodb" },
+    { name: "Node.js", slug: "nodedotjs" }
   ],
-  backend: [
-    "Node.js",
-    "Express.js",
-    "MongoDB",
-    "REST APIs",
-    "Authentication"
-  ],
-  cms: [
-    "WordPress",
-    "Shopify",
-    "Custom CMS"
-  ],
-  hosting: [
-    "Domain Setup",
-    "DNS Configuration",
-    "SSL Certificates",
-    "Netlify",
-    "GitHub Pages",
-    "GoDaddy"
-  ],
-  tools: [
-    "Git & GitHub",
-    "VS Code",
-    "Performance Optimization",
-    "SEO Best Practices",
-    "Chrome DevTools"
+  row2: [
+    { name: "Express.js", slug: "express" },
+    { name: "REST APIs", slug: "postman" },
+    { name: "Flutter", slug: "flutter" },
+    { name: "Firebase", slug: "firebase" },
+    { name: "Git", slug: "git" },
+    { name: "GitHub", slug: "github" },
+    { name: "VS Code", slug: "visualstudiocode" },
+    { name: "Postman", slug: "postman" },
+    { name: "Bruno", slug: "bruno" }
   ]
 };
 
@@ -87,7 +74,13 @@ export const projects = [
       "Book ratings and reviews",
       "Dark mode support"
     ],
-    techStack: ["Flutter", "Firebase", "Provider", "QR Scanner", "FL Chart"],
+    techStack: [
+      { name: "Flutter", slug: "flutter" },
+      { name: "Firebase", slug: "firebase" },
+      { name: "Provider", slug: "dart" },
+      { name: "QR Scanner", slug: "quicklook" },
+      { name: "FL Chart", slug: "googleanalytics" }
+    ],
     screenshots: [
       { title: "User Dashboard", url: "/screenshots/UserDashboard.jpeg" },
       { title: "Book Discovery", url: "/screenshots/Discover.jpeg" },
@@ -117,7 +110,12 @@ export const projects = [
       "Integrated analytics",
       "Contact handling system"
     ],
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"]
+    techStack: [
+      { name: "Next.js", slug: "nextdotjs" },
+      { name: "TypeScript", slug: "typescript" },
+      { name: "Tailwind CSS", slug: "tailwindcss" },
+      { name: "Framer Motion", slug: "framer" }
+    ]
   },
   {
     id: 2,
@@ -136,7 +134,12 @@ export const projects = [
       "Responsive professional design",
       "Manufacturing process visualization"
     ],
-    techStack: ["React", "Vite", "JavaScript", "Tailwind CSS"]
+    techStack: [
+      { name: "React", slug: "react" },
+      { name: "Vite", slug: "vite" },
+      { name: "JavaScript", slug: "javascript" },
+      { name: "Tailwind CSS", slug: "tailwindcss" }
+    ]
   },
   {
     id: 3,
@@ -155,7 +158,13 @@ export const projects = [
       "Performance optimized",
       "SEO friendly structure"
     ],
-    techStack: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui"]
+    techStack: [
+      { name: "React", slug: "react" },
+      { name: "TypeScript", slug: "typescript" },
+      { name: "Vite", slug: "vite" },
+      { name: "Tailwind CSS", slug: "tailwindcss" },
+      { name: "shadcn/ui", slug: "shadcnui" }
+    ]
   },
   {
     id: 4,
@@ -174,6 +183,12 @@ export const projects = [
       "International trade focus",
       "Responsive corporate layout"
     ],
-    techStack: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui"]
+    techStack: [
+      { name: "React", slug: "react" },
+      { name: "TypeScript", slug: "typescript" },
+      { name: "Vite", slug: "vite" },
+      { name: "Tailwind CSS", slug: "tailwindcss" },
+      { name: "shadcn/ui", slug: "shadcnui" }
+    ]
   }
 ];
