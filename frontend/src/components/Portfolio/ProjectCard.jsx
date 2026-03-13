@@ -95,7 +95,7 @@ const ProjectCard = ({ project, index, onSelect }) => {
                 </div>
 
                 {project.type === 'mobile' && project.screenshots && (
-                  <div className="detail-section">
+                  <div className="detail-section mobile-screenshot-section">
                     <div className="detail-header">
                       <Sparkles size={16} />
                       <h4>App Screenshots</h4>
