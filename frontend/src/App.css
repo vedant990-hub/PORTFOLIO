@@ -766,21 +766,52 @@ section {
   background: var(--color-bg-primary);
 }
 
+.projects-controls {
+  display: flex;
+  justify-content: center;
+  margin: 18px 0 28px;
+}
+
+.projects-filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-btn {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-btn.active {
+  background: var(--color-bg-accent);
+  color: var(--color-text-primary);
+  border-color: transparent;
+}
+
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 1fr; /* Force all rows to have equal height */
-  gap: 32px;
-  max-width: 1000px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 28px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding-bottom: 12px;
 }
 
 /* Center the 5th project on desktop */
 .projects-grid > .project-card-wrapper:last-child:nth-child(odd) {
-  grid-column: 1 / -1;
+  /* Keep layout consistent for odd last child while using auto-fit */
   justify-self: center;
   width: 100%;
-  max-width: calc(50% - 16px);
+  max-width: 100%;
 }
 
 .project-card-wrapper {
@@ -951,10 +982,24 @@ section {
 }
 
 .mobile-badge {
-  color: #3b82f6 !important;
-  /* Blue for mobile app */
-  background: rgba(59, 130, 246, 0.1) !important;
-  border-color: rgba(59, 130, 246, 0.2) !important;
+  color: #7c3aed !important;
+  /* Indigo/purple for mobile app */
+  background: rgba(124, 58, 237, 0.08) !important;
+  border-color: rgba(124, 58, 237, 0.15) !important;
+}
+
+.client-badge {
+  color: #10b981 !important;
+  /* Green for client projects */
+  background: rgba(16, 185, 129, 0.08) !important;
+  border-color: rgba(16, 185, 129, 0.15) !important;
+}
+
+.team-badge {
+  color: #f59e0b !important;
+  /* Amber for team projects */
+  background: rgba(245, 158, 11, 0.08) !important;
+  border-color: rgba(245, 158, 11, 0.15) !important;
 }
 
 .github-btn {

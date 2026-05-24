@@ -103,11 +103,34 @@ export const projects = [
   },
   {
     id: 1,
+    name: "Loan Approval ML System",
+    url: "https://loan-approval-ml-system.streamlit.app/",
+    githubUrl: "https://github.com/vedant990-hub/loan-approval-ml-system",
+    summary: "Machine-learning powered loan approval demo with a Streamlit UI.",
+    clientType: "Team Project",
+    type: "web",
+    overview: "An interactive Streamlit application that predicts loan approval using trained ML models. Includes data preprocessing, model training, and visualizations for model performance.",
+    whatIDid: "Built the Streamlit interface and integrated the trained model for predictions; contributed to model training and data preparation as part of a team.",
+    features: [
+      "Loan eligibility prediction",
+      "Model performance metrics and visualizations",
+      "Interactive input form for applicant data",
+      "Model comparison and explanation"
+    ],
+    techStack: [
+      { name: "Python", slug: "python" },
+      { name: "scikit-learn", slug: "scikitlearn" },
+      { name: "Pandas", slug: "pandas" },
+      { name: "Streamlit", slug: "streamlit" }
+    ]
+  },
+  {
+    id: 2,
     name: "SPR Naturals",
     url: "https://sprnaturals.in/",
     githubUrl: "https://github.com/vedant990-hub/spr-naturals-product-showcase",
     summary: "E-commerce website for a natural products business",
-    clientType: "Live Client Project",
+    clientType: "Client Project",
     type: "web",
     overview: "A modern, SEO-optimized product showcase website designed to present natural products with a clean UI and production-ready deployment. Features integrated analytics and multilingual support.",
     whatIDid: "Designed and developed the complete website from scratch using Next.js and TypeScript. Implemented a fully responsive interface, structured content for maximum engagement, and optimized for SEO.",
@@ -126,12 +149,12 @@ export const projects = [
     ]
   },
   {
-    id: 2,
+    id: 3,
     name: "Ayurudnik",
     url: "https://ayurudnik.com/",
     githubUrl: "https://github.com/vedant990-hub/Ayurudnik-Remedies",
     summary: "B2B website for veterinary health manufacturing",
-    clientType: "Live Client Project",
+    clientType: "Client Project",
     type: "web",
     overview: "A professional B2B corporate website for an animal nutrition and veterinary supplements manufacturer specializing in private-label solutions. Designed to build industry trust and generate partner leads.",
     whatIDid: "Built a clean, responsive UI with consistent branding. Developed dedicated sections for manufacturing capabilities, certifications, species-specific products, and private-label inquiry pathways.",
@@ -150,12 +173,12 @@ export const projects = [
     ]
   },
   {
-    id: 3,
+    id: 4,
     name: "Vedanta Healthcare",
     url: "https://vedantahealthcare.org/",
     githubUrl: "https://github.com/vedant990-hub/vedanta-healthcare-connect",
     summary: "Informational website for a healthcare organization",
-    clientType: "Live Client Project",
+    clientType: "Client Project",
     type: "web",
     overview: "A modern healthcare services website designed to present medical offerings with a clear, accessible layout and patient-oriented information delivery.",
     whatIDid: "Developed the front-end using React and TypeScript, focusing on performance and accessibility. Implemented a clean information hierarchy to help patients easily navigate healthcare services.",
@@ -175,12 +198,12 @@ export const projects = [
     ]
   },
   {
-    id: 4,
+    id: 5,
     name: "Vibha Global Exim",
     url: "https://vibhaglobaleximservices.com/",
     githubUrl: "https://github.com/vedant990-hub/vibha-farm-to-global",
     summary: "Corporate website for an international export company",
-    clientType: "Live Client Project",
+    clientType: "Client Project",
     type: "web",
     overview: "A modern corporate website designed to establish international B2B credibility and showcase global trade export-import services with a professional structure.",
     whatIDid: "Built a multi-page responsive website focusing on lead generation and international B2B standards. Used TypeScript to ensure code reliability and a robust architecture.",

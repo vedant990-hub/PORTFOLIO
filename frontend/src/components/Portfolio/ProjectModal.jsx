@@ -43,7 +43,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
 
               <div className="modal-header">
                 <div className="modal-meta">
-                  <span className={`project-badge ${project.type === 'mobile' ? 'mobile-badge' : ''}`}>
+                  <span className={`project-badge ${project.type === 'mobile' ? 'mobile-badge' : project.clientType && project.clientType.toLowerCase().includes('client') ? 'client-badge' : project.clientType && project.clientType.toLowerCase().includes('team') ? 'team-badge' : ''}`}>
                     {project.clientType}
                   </span>
                 </div>
